@@ -130,18 +130,21 @@
             bookmarksResults.innerHTML += `
             <div class="card mb-4">
             <div class="card-header bg-primary">
-            <h4 class="text-white siteName">${name}</h4>
-             </div>
-                <div class="card-body d-flex align-items-center justify-content-between">
-                <a href="${url}" target="_blank" class="card-link">${url}</a>
-                <div>
-                <button type="button" class="btn btn-primary btnChange" data-toggle="modal" data-target="#changeModal" >
-                Edit
-              </button>
-                <button type="button" class="btn btn-danger btnRemove">Remove</button>
-                </div>
-                </div>
+                <h4 class="text-white siteName">${name}</h4>
             </div>
+            <div class="card-body row d-flex align-items-center justify-content-between">
+                <div class="col-sm">
+                <a href="${url}" target="_blank" class="card-link">${url}</a>
+                </div>
+                <div class="col-sm d-flex justify-content-end align-items-center">
+                <button type="button" class="btn btn-primary btnChange" data-toggle="modal" data-target="#changeModal">
+                    Edit
+                  </button>
+                <button type="button" class="btn btn-danger btnRemove ml-3">Remove</button>
+            </div>
+            </div>
+            
+        </div>
             `
         }
         for (let element of bookmarksResults.children) {

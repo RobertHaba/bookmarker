@@ -108,3 +108,7 @@ body {
 .icon__rocket {
     background-image: url('../img/icon/rocket-blue.svg')
 }
+
+.icon__search {
+    background-image: url('../img/icon/search.svg')
+}

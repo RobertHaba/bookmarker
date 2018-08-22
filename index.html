@@ -5,7 +5,7 @@
     <meta charset='UTF-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <meta http-equiv='X-UA-Compatible' content='ie=edge'>
-    <title>Document</title>
+    <title>Bookmarker</title>
     <link href='https://fonts.googleapis.com/css?family=Lato|Montserrat|Open+Sans|Roboto' rel='stylesheet'>
     <link rel="stylesheet" href="./css/bootstrap.min.css">
     <link rel='stylesheet' type='text/css' href='./css/style.css'>
@@ -15,10 +15,21 @@
 <body>
     <div class="container">
         <div class="header clearfix">
-            <nav>
 
-            </nav>
-            <h3 class="text-muted">Bookmarker</h3>
+            <div class="row">
+                <div class="col-sm">
+                    <h3 class="text-muted">Bookmarker</h3>
+                </div>
+                <div class="col-sm d-flex justify-content-end align-items-center">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Enter a site name" aria-label="Enter a site name" aria-describedby="buttonSearch" id="searchInput">
+                        <div class="input-group-append">
+                            <button class="btn bg-white border" type="button" id="buttonSearch"><span class="icon icon__search"></span></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
         <div class="jumbotron">
             <h2>Bookmark</h2>
@@ -36,64 +47,85 @@
                 </button>
             </form>
         </div>
+
+        <div class="row">
+
+        </div>
+
         <div class="row marketing">
             <div class="col-lg-12">
                 <div id="bookmarksResults">
+                    <div class="card mb-4">
+                        <div class="card-header bg-primary">
+                            <h4 class="text-white siteName">${name}</h4>
+                        </div>
+                        <div class="card-body col-sm d-flex align-items-center justify-content-between">
+                            <a href="${url}" target="_blank" class="card-link">${url}</a>
 
+                        </div>
+                        <div class="col-sm d-flex justify-content-end align-items-center">
+                            <button type="button" class="btn btn-primary btnChange" data-toggle="modal" data-target="#changeModal">
+                                Edit
+                              </button>
+                            <button type="button" class="btn btn-danger btnRemove ml-3">Remove</button>
+                        </div>
+                    </div>
                 </div>
             </div>
-
-            <footer class="footer">
-                <p>
-                    &copy; 2018 Bookmarker, <a href="https://www.roberthaba.github.io" class="md" target="_blank">HABA</a>
-                </p>
-            </footer>
-
         </div>
 
-        <div class="modal fade" id="changeModal" tabindex="-1" role="dialog" aria-labelledby="changeModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="changeModalLabel">Change bookmark name</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <footer class="footer">
+            <p>
+                &copy; 2018 Bookmarker, <a href="https://www.roberthaba.github.io" class="md" target="_blank">HABA</a>
+            </p>
+        </footer>
+
+    </div>
+
+    <div class="modal fade" id="changeModal" tabindex="-1" role="dialog" aria-labelledby="changeModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="changeModalLabel">Change bookmark name</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
-                    </div>
-                    <div class="modal-body">
-                        <form id="change">
-                            <label for="newSiteName">New Site Name</label>
-                            <input type="text" class="form-control" id="newSiteName">
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary" data-dismiss="modal" id="saveChange">Save changes</button>
-                    </div>
+                </div>
+                <div class="modal-body">
+                    <form id="change">
+                        <label for="newSiteName">New Site Name</label>
+                        <input type="text" class="form-control" id="newSiteName">
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" id="saveChange">Save changes</button>
                 </div>
             </div>
         </div>
+    </div>
 
-        <div class="modal" tabindex="-1" role="dialog" id="myModal">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Wrong way</h5>
-                        <button type="button" class="close" id="closeModal">
+    <div class="modal" tabindex="-1" role="dialog" id="myModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Wrong way</h5>
+                    <button type="button" class="close" id="closeModal">
                     <span aria-hidden="true">&times;</span>
                   </button>
-                    </div>
-                    <div class="modal-body">
-                        <p id="errorModal">URL is not valid</p>
-                    </div>
-
                 </div>
+                <div class="modal-body">
+                    <p id="errorModal">URL is not valid</p>
+                </div>
+
             </div>
         </div>
+    </div>
 
-        <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
-        <script src='./scripts/bootstrap.min.js'></script>
-        <script src='./scripts/main.js'></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script src='./scripts/bootstrap.min.js'></script>
+    <script src='./scripts/main.js'></script>
+    <script src='./scripts/search.js'></script>
 </body>
 
 </html>
