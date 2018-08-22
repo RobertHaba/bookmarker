@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang='pl'>
+
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <meta http-equiv='X-UA-Compatible' content='ie=edge'>
+    <title>Document</title>
+    <link href='https://fonts.googleapis.com/css?family=Lato|Montserrat|Open+Sans|Roboto' rel='stylesheet'>
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel='stylesheet' type='text/css' href='./css/style.css'>
+    <meta name='theme-color' content='#383560'>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header clearfix">
+            <nav>
+
+            </nav>
+            <h3 class="text-muted">Bookmarker</h3>
+        </div>
+        <div class="jumbotron">
+            <h2>Bookmark</h2>
+            <form id="myForm">
+                <div class="form-group">
+                    <label for="siteName">site name</label>
+                    <input type="text" class="form-control" id="siteName" placeholder="Website name">
+                </div>
+                <div class="form-group">
+                    <label for="siteUrl">site url</label>
+                    <input type="text" class="form-control" id="siteUrl" placeholder="Website url">
+                </div>
+                <button type="submit" class="btn btn-primary">
+                    Submit
+                </button>
+            </form>
+        </div>
+        <div class="row marketing">
+            <div class="col-lg-12">
+                <div id="bookmarksResults">
+
+                </div>
+            </div>
+
+            <footer class="footer">
+                <p>
+                    &copy; 2018 Bookmarker, <a href="https://www.roberthaba.gitgub.io" class="md" target="_blank">HABA</a>
+                </p>
+            </footer>
+
+        </div>
+
+        <div class="modal fade" id="changeModal" tabindex="-1" role="dialog" aria-labelledby="changeModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="changeModalLabel">Change bookmark name</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="change">
+                            <label for="newSiteName">New Site Name</label>
+                            <input type="text" class="form-control" id="newSiteName">
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal" id="saveChange">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal" tabindex="-1" role="dialog" id="myModal">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Wrong way</h5>
+                        <button type="button" class="close" id="closeModal">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                    </div>
+                    <div class="modal-body">
+                        <p id="errorModal">URL is not valid</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+        <script src='./scripts/bootstrap.min.js'></script>
+        <script src='./scripts/main.js'></script>
+</body>
+
+</html>
